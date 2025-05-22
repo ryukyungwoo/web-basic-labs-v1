@@ -15,3 +15,18 @@ while (true) {
     alert("오답입니다.");
   }
 }
+
+let targetNum = Math.floor(Math.random() * 10 + 1);
+
+let keepGoing = true;
+
+while (keepGoing) {
+  let input = prompt("1~10 중 하나를 고르세요 : ");
+  alert(`랜덤수 : ${targetNum}, 고른수 : ${input} `);
+  if (input == targetNum) {
+    alert("맞았습니다.");
+    keepGoing = false;
+  }
+}
+
+rl.close();

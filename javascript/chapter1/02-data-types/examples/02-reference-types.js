@@ -2,7 +2,7 @@
 console.log("=== 참조형 자료형 ===");
 
 let arr = [1, 2, 3];
-let user = { name: "지수", age: 25 };
+let user = { name: "지수", age: 25 }; //객체타입 리터럴
 let greet = function () {
   console.log("Hello!");
 };

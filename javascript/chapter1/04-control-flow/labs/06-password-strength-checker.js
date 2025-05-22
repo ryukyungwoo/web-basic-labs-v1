@@ -34,3 +34,20 @@ if (!/[!@#$%^&*]/.test(password)) {
 if (isStrong) {
   alert("강한 비밀번호입니다!");
 }
+
+let input = prompt(`
+    비밀번호를 입력해주세요.
+    조건:
+- 길이 8자 이상
+- 대문자 1개 이상
+- 숫자 1개 이상
+- 특수문자 1개 이상 (!@#$%^&*)`);
+
+function validatePassword(password) {
+  const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+  return regex.test(password);
+}
+
+if (validatePassword(input)) {
+  alert("강한 비밀번호");
+}

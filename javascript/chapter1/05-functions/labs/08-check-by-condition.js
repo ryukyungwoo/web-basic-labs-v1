@@ -5,8 +5,30 @@
 
 function checkByCondition(num, callback) {
   // TODO: callback을 이용해 조건 검사
+  return callback(num);
 }
 
 // 1) 짝수인지 검사
+function checkEvenOdd(num) {
+  if (num % 2 == 0) {
+    return true;
+  } else {
+    false;
+  }
+}
 // 2) 10보다 큰지 검사
+function checkBiggerThenTen(num) {
+  if (num > 10) {
+    return true;
+  } else {
+    return false;
+  }
+}
 // 3) 3의 배수인지 검사
+function checkThreeTimes(num) {
+  if (num % 3 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}

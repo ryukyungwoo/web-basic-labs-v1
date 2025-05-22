@@ -2,4 +2,13 @@
 // 예: sumTo(5) → 15
 function sumTo(n) {
   // TODO
+  let nowNum = 0;
+  return function () {
+    if (nowNum < n) {
+      nowNum++;
+      sumTo(nowNum);
+    } else {
+      return nowNum;
+    }
+  };
 }
