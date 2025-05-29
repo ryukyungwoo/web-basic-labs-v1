@@ -13,3 +13,15 @@ function fetchData() {
 }
 fetchData();
 */
+
+async function fetchData() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+    const data = res.json();
+    console.log(`data : ${data}`);
+  } catch (err) {
+    console.log(`error : ${err}`);
+  }
+}
+
+fetchData();

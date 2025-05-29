@@ -20,3 +20,23 @@ function step3() {
 2단계 완료
 3단계 완료
 */
+
+function step1() {
+  return new Promise((resolve) => setTimeout(() => resolve("1단계 완료"), 300));
+}
+function step2() {
+  return new Promise((resolve) => setTimeout(() => resolve("2단계 완료"), 400));
+}
+function step3() {
+  return new Promise((resolve) => setTimeout(() => resolve("3단계 완료"), 500));
+}
+
+step1().then((a) => {
+  console.log(a);
+  step2().then((b) => {
+    console.log(b);
+    step3().then((c) => {
+      console.log(c);
+    });
+  });
+});

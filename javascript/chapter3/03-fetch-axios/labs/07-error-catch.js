@@ -6,3 +6,19 @@
 
 - 에러 메시지와 HTTP 상태 코드를 콘솔에 출력
 */
+
+import axios from "axios";
+
+async function get() {
+  try {
+    const res = await axios.get(
+      "https://jsonplaceholder.typicode.com/404-not-found"
+    );
+    console.log(res.data.title);
+  } catch (err) {
+    console.log(err.code);
+    console.log(err.status);
+  }
+}
+
+get();

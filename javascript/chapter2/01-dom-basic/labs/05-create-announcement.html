@@ -6,6 +6,10 @@
 
     <script>
       // TODO: "추석 연휴 배송 안내: 9/28~10/3 배송 불가" 문장을 p 요소로 생성해서 announcement-box에 추가하세요.
+      const box = document.querySelector("#announcement-box");
+      const notice = document.createElement("p");
+      notice.textContent = "추석 연휴 배송 안내: 9/28~10/3 배송 불가";
+      box.append(notice);
     </script>
   </body>
 </html>

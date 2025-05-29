@@ -9,3 +9,8 @@ const posts = [
 ];
 
 // TODO: 모든 태그를 하나의 배열로 합친 후, reduce로 개수 세기
+let tagList = [];
+posts.forEach((n) => n.tags.forEach((n) => tagList.push(n)));
+console.log(tagList);
+
+console.log(tagList.reduce((acc) => acc + 1, 0));

@@ -13,12 +13,38 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
       /*
-    [문제]
-    1. 버튼 클릭 시 axios를 통해 아래 API에서 게시글 목록을 불러오세요.
-       https://jsonplaceholder.typicode.com/posts
-    2. 불러온 데이터에서 title 10개만 추려서 <ol>에 <li>로 출력하세요.
-    3. 에러 발생 시 alert("게시글을 불러올 수 없습니다.")를 띄우세요.
-    */
+      [문제]
+      1. 버튼 클릭 시 axios를 통해 아래 API에서 게시글 목록을 불러오세요.
+         https://jsonplaceholder.typicode.com/posts
+      2. 불러온 데이터에서 title 10개만 추려서 <ol>에 <li>로 출력하세요.
+      3. 에러 발생 시 alert("게시글을 불러올 수 없습니다.")를 띄우세요.
+      */
+
+      async function get() {
+        const res = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
+        return res;
+      }
+
+      const postList = document.querySelector("#postList");
+      const fetchPosts = document.querySelector("#fetchPosts");
+
+      fetchPosts.addEventListener("click", async () => {
+        const resList = await get();
+
+        postList.textContent = "";
+
+        resList.data.forEach((user) => {
+          let listCount = document.getElementsByTagName("li").length;
+
+          if (listCount < 10) {
+            const li = document.createElement("li");
+            li.textContent = `(${user.id}) || user : ${user.userId} || title : ${user.title} || body : ${user.body}`;
+            postList.append(li);
+          }
+        });
+      });
     </script>
   </body>
 </html>

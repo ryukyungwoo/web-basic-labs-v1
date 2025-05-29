@@ -10,6 +10,21 @@
       // TODO: 상품의 상세 수량을 조절할 수 있도록 구현하세요.
       // - 수량은 최소 1 이상 유지
       // - + 누르면 1씩 증가, - 누르면 1씩 감소 (단 1 미만 안됨)
+      const quantity = document.querySelector("#quantity");
+      const minusBtn = document.querySelector("#minusBtn");
+      const plusBtn = document.querySelector("#plusBtn");
+
+      minusBtn.addEventListener("click", () => {
+        if (quantity.textContent == 1) {
+          alert("더 이상 줄어들 수 없습니다");
+        } else {
+          quantity.textContent--;
+        }
+      });
+
+      plusBtn.addEventListener("click", () => {
+        quantity.textContent++;
+      });
     </script>
   </body>
 </html>

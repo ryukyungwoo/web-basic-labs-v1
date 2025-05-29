@@ -14,36 +14,21 @@
     <ul id="todoList"></ul>
 
     <script>
-      const input = document.getElementById("todoInput");
-      const addBtn = document.getElementById("addBtn");
-      const todoList = document.getElementById("todoList");
+      const todoInput = document.querySelector("#todoInput");
+      const addBtn = document.querySelector("#addBtn");
+      const todoList = document.querySelector("#todoList");
 
       addBtn.addEventListener("click", () => {
-        const text = input.value.trim();
-        if (text === "") return;
-
-        const li = document.createElement("li");
-        li.innerHTML = `
-      <span class="todo-text">${text}</span>
-      <button>✅</button>
-      <button>❌</button>
-    `;
-        todoList.appendChild(li);
-        input.value = "";
+        todoList.innerHTML += `<li>${todoInput.value} <button>✅</button><button>❌</button></li>`;
+        todoInput.value = "";
       });
-
       todoList.addEventListener("click", (e) => {
-        if (e.target.tagName !== "BUTTON") return;
-
-        const li = e.target.closest("li");
-        const textEl = li.querySelector(".todo-text");
-
-        if (e.target.textContent === "✅") {
-          textEl.classList.toggle("done");
+        let target = e.target;
+        if (target.textContent === "❌") {
+          target.parentElement.remove();
         }
-
-        if (e.target.textContent === "❌") {
-          li.remove();
+        if (target.textContent === "✅") {
+          target.parentElement.classList.toggle("done");
         }
       });
     </script>

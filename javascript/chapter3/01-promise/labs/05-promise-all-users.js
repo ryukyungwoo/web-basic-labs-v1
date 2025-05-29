@@ -12,3 +12,24 @@ https://jsonplaceholder.typicode.com/users/3
 - 3명의 이름(name)만 배열로 출력할 것 (예: ["Leanne", "Ervin", "Clementine"])
 - 에러가 발생하면 "요청 실패" 메시지를 출력하세요.
 */
+
+function printName(name, delay) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`${name} `);
+    }, delay);
+  });
+}
+
+async function runAll() {
+  const promises = [
+    printName("Leanne", 1000),
+    printName("Ervin", 500),
+    printName("Clementine", 1500),
+  ];
+
+  console.log("요청 시작...");
+  const results = await Promise.all(promises);
+  console.log("모든 작업 완료:", results); // ["결과1", "결과2", "결과3"]
+}
+runAll();

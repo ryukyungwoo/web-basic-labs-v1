@@ -16,3 +16,19 @@ findUserById(10).then(user => {
   console.error("실패:", err);
 });
 */
+
+function findUserById(userId) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (userId > 0) {
+        resolve({ id: userId, name: "사용자" });
+      } else {
+        reject("유효하지 않은 ID");
+      }
+    }, 800);
+  });
+}
+
+findUserById(3)
+  .then((userId) => console.log(userId))
+  .catch((result) => console.log(result));

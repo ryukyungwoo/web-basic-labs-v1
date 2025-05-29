@@ -10,6 +10,19 @@
     <p>지원자 정보: <span id="info">-</span></p>
     <script>
       // TODO: input, select 이벤트 시 info에 "이름 (부서)" 형태로 출력
+
+      const textName = document.querySelector("#name");
+      const dept = document.querySelector("#dept");
+      const info = document.querySelector("#info");
+
+      textName.addEventListener("input", () => {
+        console.log(textName.value);
+        info.textContent = textName ? textName.value : "";
+      });
+
+      dept.addEventListener("change", (e) => {
+        info.textContent = textName.value + "(" + e.target.value + ")";
+      });
     </script>
   </body>
 </html>

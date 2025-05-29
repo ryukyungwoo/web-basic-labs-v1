@@ -7,3 +7,23 @@
 Promise.all을 활용하여
 두 결과를 동시에 받아 콘솔에 출력하세요.
 */
+
+import axios from "axios";
+
+async function fetchUser(userId) {
+  return new Promise((resolve) => {
+    resolve(axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`));
+  });
+}
+
+async function fetchPost(postId) {
+  return new Promise((resolve) => {
+    resolve(axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`));
+  });
+}
+
+const fetchList = [await fetchUser(1), await fetchPost(1)];
+
+const res = await Promise.all(fetchList);
+
+console.log(res);
